@@ -16,5 +16,9 @@ export default {
 </script>
 
 <style>
-
+  .app-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>

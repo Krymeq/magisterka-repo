@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
+import { MainList } from './components/MainList';
 
 const App = () => {
-  const [state, setState] = useState(0);
-  setState(state + 1);
-  
-  console.log(state);
   return (
-    <h1>{state}</h1>
+    <div className="app-root">
+      <MainList />
+    </div>
   );
 }
 
