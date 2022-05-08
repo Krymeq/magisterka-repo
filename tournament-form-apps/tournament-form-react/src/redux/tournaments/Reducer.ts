@@ -10,7 +10,7 @@ const onSetTournaments: CaseReducer<
         state.tournaments = payload;
     };
 
-const onSelectTournament: CaseReducer<TournamentState, PayloadAction<number>> = (state, {payload}) => {
+const onSelectTournament: CaseReducer<TournamentState, PayloadAction<number | undefined>> = (state, {payload}) => {
     state.selectedTournament = payload;
 }
 

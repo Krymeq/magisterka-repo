@@ -46,7 +46,7 @@ const DisconnectedNode: React.FC<Props> = ({ tournament, selectTournament }) => 
   <Node>
     {tournament.name}
     <ApplyButton onClick={() => selectTournament(tournament.id)}>
-      Zapisz się
+      Sign in
     </ApplyButton>
   </Node>
   );

@@ -15,5 +15,5 @@ export interface FetchTournamentPayload {
 
 export const fetchTournaments = createAction<FetchTournamentPayload>(TournamentActions.FETCH_TOURNAMENTS);
 export const tournamentsFetched = createAction<Tournament[]>(TournamentActions.TOURNAMENTS_FETCHED);
-export const selectTournament = createAction<number>(TournamentActions.SELECT_TOURNAMENT);
+export const selectTournament = createAction<number | undefined>(TournamentActions.SELECT_TOURNAMENT);
 export const clearSelection = createAction<void>(TournamentActions.CLEAR_SELECTION);

@@ -5,12 +5,14 @@ import styled from 'styled-components';
 import { Tournament } from '../../domain/Tournament';
 import { AppDispatch, RootState } from '../../redux/store';
 import { fetchTournaments } from '../../redux/tournaments/Actions';
-import { ApplyForm } from './components/ApplyForm/ApplyForm';
+import { getSelectedTournament } from '../../redux/tournaments/State';
+import { ApplyFormContainer } from './components/ApplyForm/ApplyFormContainer';
 import { PageControl } from './components/PageControl';
 import { TournamentNode } from './components/TournamentNode';
 
 interface StateProps {
   tournaments: Tournament[];
+  selectedTournament?: Tournament;
 }
 
 interface DispatchProps {
@@ -24,7 +26,7 @@ const TournamentContainer = styled.div`
 
 type Props = StateProps & DispatchProps;
 
-const DisconnectedTournaments: React.FC<Props> = ({ tournaments, fetchTournaments }) => {
+const DisconnectedTournaments: React.FC<Props> = ({ tournaments, fetchTournaments, selectedTournament }) => {
   const { id } = useParams();
   const [page, setPage] = useState(1);
   useEffect(() => { 
@@ -34,7 +36,7 @@ const DisconnectedTournaments: React.FC<Props> = ({ tournaments, fetchTournament
 
   return (
     <TournamentContainer>
-      <ApplyForm />
+      { selectedTournament && <ApplyFormContainer />}
       <PageControl currentPage={page} setPage={setPage}/>
       {tournaments.map(tournament => <TournamentNode key={tournament.id} tournament={tournament} />)}
     </TournamentContainer>
@@ -43,6 +45,7 @@ const DisconnectedTournaments: React.FC<Props> = ({ tournaments, fetchTournament
 
 const mapStateToProps = (state: RootState): StateProps => ({
   tournaments: state.tournaments.tournaments,
+  selectedTournament: getSelectedTournament(state),
 });
 
 const mapDispatchToProps = (dispatch: AppDispatch): DispatchProps => ({
