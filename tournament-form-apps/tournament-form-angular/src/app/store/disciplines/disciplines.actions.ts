@@ -1,5 +1,5 @@
-import {createAction, props} from "@ngrx/store";
-import {Discipline} from "../../domain/Discipline";
+import { createAction, props } from "@ngrx/store";
+import { Discipline } from "../../domain/Discipline";
 
 export const enum DisciplinesActions {
   FETCH_DISCIPLINES = 'discipline/fetch-disciplines',
@@ -9,5 +9,5 @@ export const enum DisciplinesActions {
 export const fetchDisciplines = createAction(DisciplinesActions.FETCH_DISCIPLINES)
 export const disciplinesFetched = createAction(
   DisciplinesActions.DISCIPLINES_FETCHED,
-  props<{disciplines: Discipline[]}>()
+  props<{ payload: Discipline[] }>()
 );

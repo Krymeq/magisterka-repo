@@ -27,7 +27,7 @@ export const PageControl: React.FC<Props> = ({currentPage, setPage}) => {
       <ControlButton onClick={() => setPage(currentPage - 1)}>
         -1
       </ControlButton>}
-      Current page: {currentPage}
+      <span>Current page: {currentPage}</span>
     </ControlRoot>
   )
 }

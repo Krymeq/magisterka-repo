@@ -1,0 +1,43 @@
+.tournament-container {
+  max-width: 1200px;
+  margin: 20px auto;
+
+  .page-control {
+    margin-bottom: 10px;
+
+    .control-button {
+      border: none;
+      cursor: pointer;
+      padding: 7px 15px;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+  }
+
+  .tournament-node {
+    font-size: 1.1em;
+    background-color: #def;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  .apply-button {
+    all: unset;
+    margin-left: 300px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    user-select: none;
+    color: #00a;
+    cursor: pointer;
+    &:hover {
+      color: #39f;
+    }
+
+    &:active {
+      color: #6cf;
+    }
+  }
+}

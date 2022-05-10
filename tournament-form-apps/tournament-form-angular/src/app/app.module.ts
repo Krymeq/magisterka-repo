@@ -12,6 +12,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
 import {CommonModule} from "@angular/common";
+import { TournamentsEffects } from './store/tournaments/tournaments.effects';
+import { TournamentsModule } from './pages/tournaments/tournaments.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import {CommonModule} from "@angular/common";
   imports: [
     BrowserModule,
     DisciplinesModule,
+    TournamentsModule,
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
@@ -27,6 +30,7 @@ import {CommonModule} from "@angular/common";
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([
       DisciplinesEffects,
+      TournamentsEffects,
     ])
   ],
   providers: [],

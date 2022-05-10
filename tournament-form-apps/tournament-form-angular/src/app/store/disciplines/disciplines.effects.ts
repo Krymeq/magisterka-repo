@@ -14,7 +14,7 @@ export class DisciplinesEffects {
       ofType(DisciplinesActions.FETCH_DISCIPLINES),
       mergeMap(() =>
         this.dataService.getDisciplines().pipe(
-          map(disciplines => disciplinesFetched({ disciplines }))
+          map(disciplines => disciplinesFetched({ payload: disciplines }))
         )
       )
     )

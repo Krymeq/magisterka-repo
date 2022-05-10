@@ -44,7 +44,9 @@ type Props = DispatchProps & OwnProps;
 const DisconnectedNode: React.FC<Props> = ({ tournament, selectTournament }) => {
   return (
   <Node>
-    {tournament.name}
+    <span>
+      {tournament.name}
+    </span>
     <ApplyButton onClick={() => selectTournament(tournament.id)}>
       Sign in
     </ApplyButton>
