@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { FormArray, FormControl, FormGroup, Validators, ValidationErrors } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/store/reducers";
+import { selectTournament } from "src/app/store/tournaments/tournaments.actions";
 import { CustomValidators } from "./date-validators";
 
 const currentDate = new Date().toISOString().slice(0, 10);
@@ -134,6 +137,7 @@ const dateValidators = [
 
           <div class="button-container">
             <button type="submit" class="primary">Submit</button>
+            <button type="button" class="secondary" (click)="this.deselectTournament()">Cancel</button>
           </div>
         </form>
       </div>
@@ -142,7 +146,7 @@ const dateValidators = [
   styleUrls: ['./apply-form.component.scss'],
   selector: 'app-apply-form'
 })
-export class ApplyForm extends Component {
+export class ApplyFormComponent {
   formGroup = new FormGroup({
     teamName: new FormControl('', teamNameValidators),
     teamShortcut: new FormControl('', teamShortcutValidators),
@@ -154,6 +158,8 @@ export class ApplyForm extends Component {
       })
     ])
   });
+
+  constructor(private store: Store<AppState>) {}
 
   submitForm() {
     console.log(this.participants.controls.forEach((control) => console.log(control.errors)));
@@ -179,6 +185,10 @@ export class ApplyForm extends Component {
 
   removeParticipant(i: number) {
     this.participants.removeAt(i);
+  }
+
+  deselectTournament() {
+    this.store.dispatch(selectTournament({}))
   }
 
   getTeamNameValidationMessage = (errors: ValidationErrors | null): string | undefined => {

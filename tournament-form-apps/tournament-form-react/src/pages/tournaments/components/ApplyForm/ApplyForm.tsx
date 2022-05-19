@@ -150,42 +150,40 @@ export const ApplyForm = () => {
                   </Button>
                 </Header>
                 {values.participants.map((_, idx) => (
-                  <div key={idx}>
-                    <ParticipantContainer>
-                      <FieldContainer>
-                        <label htmlFor={`participants.${idx}.name`}>Name</label>
-                        <StyledTextfield name={`participants.${idx}.name`} type="text" />
-                        <ErrorMessage name={`participants.${idx}.name`} component={ErrorLabel} />
-                      </FieldContainer>
+                  <ParticipantContainer key={idx}>
+                    <FieldContainer>
+                      <label htmlFor={`participants.${idx}.name`}>Name</label>
+                      <StyledTextfield name={`participants.${idx}.name`} type="text" />
+                      <ErrorMessage name={`participants.${idx}.name`} component={ErrorLabel} />
+                    </FieldContainer>
 
-                      <FieldContainer>
-                        <label htmlFor={`participants.${idx}.email`}>E-mail</label>
-                        <StyledTextfield name={`participants.${idx}.email`} type="email" />
-                        <ErrorMessage name={`participants.${idx}.email`} component={ErrorLabel} />
-                      </FieldContainer>
+                    <FieldContainer>
+                      <label htmlFor={`participants.${idx}.email`}>E-mail</label>
+                      <StyledTextfield name={`participants.${idx}.email`} type="email" />
+                      <ErrorMessage name={`participants.${idx}.email`} component={ErrorLabel} />
+                    </FieldContainer>
 
-                      <FieldContainer>
-                        <label htmlFor={`participants.${idx}.dateOfBirth`}>Date of birth</label>
-                        <StyledTextfield name={`participants.${idx}.dateOfBirth`} type="date" />
-                        <ErrorMessage name={`participants.${idx}.dateOfBirth`} component={ErrorLabel} />
-                      </FieldContainer>
+                    <FieldContainer>
+                      <label htmlFor={`participants.${idx}.dateOfBirth`}>Date of birth</label>
+                      <StyledTextfield name={`participants.${idx}.dateOfBirth`} type="date" />
+                      <ErrorMessage name={`participants.${idx}.dateOfBirth`} component={ErrorLabel} />
+                    </FieldContainer>
 
-                      <div>
-                        <Button
-                          type="button"
-                          onClick={() => remove(idx)}>
-                          Remove
-                        </Button>
-                      </div>
-                    </ParticipantContainer>
-                  </div>
+                    <div>
+                      <Button
+                        type="button"
+                        onClick={() => remove(idx)}>
+                        Remove
+                      </Button>
+                    </div>
+                  </ParticipantContainer>
                 ))}
               </ParticipantsHolder>
             )}
           />
-          <ButtonContainer>  
+          <ButtonContainer>
             <Button type='submit' theme="primary">Submit</Button>
-            <Button 
+            <Button
               type="button"
               theme="secondary"
               onClick={() => dispatch(selectTournament(undefined))}

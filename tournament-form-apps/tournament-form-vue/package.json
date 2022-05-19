@@ -12,8 +12,10 @@
     "node-sass": "^7.0.1",
     "pinia": "^2.0.14",
     "sass-loader": "^12.6.0",
+    "vee-validate": "^4.5.11",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

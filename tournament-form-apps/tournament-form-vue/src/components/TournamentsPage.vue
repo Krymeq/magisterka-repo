@@ -1,5 +1,6 @@
 <template>
   <div class="tournament-container">
+    <ApplyForm v-if="state.selectedTournament" />
     <div class="page-control">
       <button class="control-button" @click="() => { loadTournaments(page + 1) }">
         +1
@@ -12,7 +13,7 @@
 
     <div v-for="tournament in state.tournaments" class="tournament-node" :key="tournament.id">
       <span>{{ tournament.name }}</span>
-      <button class="apply-button" @click="this.selectTournament(tournament.id)">
+      <button class="apply-button" @click="state.selectTournament(tournament.id)">
         Sign in
       </button>
     </div>
@@ -23,6 +24,7 @@
 import { ref } from 'vue';
 import { useTournaments } from '@/store/tournamentsStore';
 import { useRoute } from "vue-router";
+import ApplyForm from './ApplyForm.vue';
 
 const page = ref(1);
 const route = useRoute();
@@ -80,5 +82,4 @@ loadTournaments(page.value);
     }
   }
 }
-
 </style>

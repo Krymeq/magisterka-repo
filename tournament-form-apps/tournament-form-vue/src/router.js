@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import DisciplinesPage from './pages/DisciplinesPage.vue';
-import TournamentsPage from './pages/TournamentsPage.vue';
+import DisciplinesPage from './components/DisciplinesPage.vue';
+import TournamentsPage from './components/TournamentsPage.vue';
 
 const routes = [
   {

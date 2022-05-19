@@ -24,5 +24,5 @@ export const tournamentsFetched = createAction(
 
 export const selectTournament = createAction(
   TournamentsActions.SELECT_TOURNAMENT,
-  props<{payload: number}>(),
+  props<{payload?: number}>(),
 )
