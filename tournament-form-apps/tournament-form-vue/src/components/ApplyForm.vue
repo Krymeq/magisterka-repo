@@ -68,21 +68,21 @@ const state = useTournaments();
             </header>
             <div v-for="(_, idx) in fields" :key="idx" class="participant-container">
               <div class="field-container">
-                <label :for="`participants.${idx}.name`">Name</label>
-                <Field :name="`participants.${idx}.name`" type="text" />
-                <ErrorMessage :name="`participants.${idx}.name`" class="error-message" />
+                <label :for="`participants[${idx}].name`">Name</label>
+                <Field :name="`participants[${idx}].name`" type="text" />
+                <ErrorMessage :name="`participants[${idx}].name`" class="error-message" />
               </div>
 
               <div class="field-container">
-                <label :for="`participants.${idx}.email`">E-mail</label>
-                <Field :name="`participants.${idx}.email`" type="email" />
-                <ErrorMessage :name="`participants.${idx}.email`" class="error-message" />
+                <label :for="`participants[${idx}].email`">E-mail</label>
+                <Field :name="`participants[${idx}].email`" type="email" />
+                <ErrorMessage :name="`participants[${idx}].email`" class="error-message" />
               </div>
 
               <div class="field-container">
-                <label :for="`participants.${idx}.dateOfBirth`">Date of birth</label>
-                <Field :name="`participants.${idx}.dateOfBirth`" type="date" />
-                <ErrorMessage :name="`participants.${idx}.dateOfBirth`" class="error-message" />
+                <label :for="`participants[${idx}].dateOfBirth`">Date of birth</label>
+                <Field :name="`participants[${idx}].dateOfBirth`" type="date" />
+                <ErrorMessage :name="`participants[${idx}].dateOfBirth`" class="error-message" />
               </div>
 
               <div>
