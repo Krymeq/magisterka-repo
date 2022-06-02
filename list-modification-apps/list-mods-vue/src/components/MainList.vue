@@ -15,10 +15,10 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { shallowRef } from "vue";
 import ListItem from "./ListItem.vue";
 
-const list = ref([]);
+const list = shallowRef([]);
 
 const createElements = (startingId, amount) => Array(amount).fill(0).map((_, index) => ({
   id: startingId + index,
@@ -37,7 +37,7 @@ const removeHalf = () => {
 }
 
 const removeFivePercent = () => {
-  list.value = list.value.filter((elem, index) => index % 20 === 0);
+  list.value = list.value.filter((elem, index) => index % 20 !== 0);
 }
 
 const modifyHalf = () => {

@@ -11,7 +11,8 @@ interface Props {
   item: Item;
 }
 
-export const ListItem = ({ item }: Props) => (
+const NotMemoizedListItem = ({ item }: Props) => {
+  return (
   <div className="root">
     <div className="id-container">{item.id}</div>
     <div>
@@ -19,4 +20,6 @@ export const ListItem = ({ item }: Props) => (
       <div>{item.text}</div>
     </div>
   </div>
-);
+)};
+
+export const ListItem = React.memo(NotMemoizedListItem);

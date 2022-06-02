@@ -22,7 +22,7 @@ export const MainList = () => {
   }
   
   const removeFivePercent = () => {
-    setItems(items.filter((elem, index) => index % 20 === 0));
+    setItems(items.filter((elem, index) => index % 20 !== 0));
   }
   
   const modifyHalf = () => {

@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { Item } from "src/app/domain/item";
 
 @Component({
@@ -12,7 +12,8 @@ import { Item } from "src/app/domain/item";
     </div>
   </div>
   `,
-  styleUrls: ['ListItem.component.css']
+  styleUrls: ['ListItem.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListItemComponent {
   constructor() {};

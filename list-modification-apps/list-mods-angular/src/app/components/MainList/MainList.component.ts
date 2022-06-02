@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
+import { Observable, Subject, takeUntil } from "rxjs";
 import { Item } from "src/app/domain/item";
 import { ItemService } from "src/app/services/item.service";
 
@@ -26,14 +27,22 @@ const createElements = (startingId: number, amount: number) => Array(amount).fil
   </div>
   `
 })
-export class MainListComponent {
+export class MainListComponent implements OnDestroy {
+  subject$ = new Subject();
   itemList: Item[] = [];
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
-    this.itemService.getItems().subscribe(res => {
-      this.itemList = res;
-    }).unsubscribe();
+    this.itemService.getItems()
+      .pipe(takeUntil(this.subject$))
+      .subscribe(res => {
+        this.itemList = res;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.subject$.next({});
+    this.subject$.unsubscribe();
   }
 
   removeHalf() {
@@ -41,7 +50,7 @@ export class MainListComponent {
   }
 
   removeFivePercent() {
-    this.itemList = this.itemList.filter((_, index) => index % 20 === 0);
+    this.itemList = this.itemList.filter((_, index) => index % 20 !== 0);
   }
 
   modifyHalf() {

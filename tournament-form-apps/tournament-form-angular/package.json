@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "analyze": "npx source-map-explorer './dist/tournament-form-anuglar/*.js'"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@ngrx/store": "^13.2.0",
     "@ngrx/store-devtools": "^13.2.0",
     "rxjs": "~7.5.0",
+    "source-map-explorer": "^2.5.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
